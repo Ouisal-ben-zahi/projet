@@ -6,15 +6,15 @@ import Accueil from './Client/Accueil';
 import Boutique from './Client/Boutique'; 
 import Contact from './Client/Contact'; 
 import Panier from './Client/Panier';
-import Recherche from './Client/Recherche';
+
 import GestionCommandes from './Admin/GestionCommandes';
 import GestionPaiement from './Admin/GestionProduits';
 import GestionUtilisateur from './Admin/GestionUtilisateur';
 import GestionProduits from './Admin/GestionProduits';
 import TableauBord from './Admin/TableauBord';
-import Accueil from './composants/Accueil';
-import Connecter from './src/Connecter';
-import Inscrire from './src/Inscrire';
+
+import Connecter from './Connecter';
+import Inscrire from './Inscrire';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,8 +27,7 @@ const App = () => (
         <Route path="/" element={<Accueil />} />
         <Route path="/Boutique" element={<Boutique />} />
         <Route path="/Contact" element={<Contact />} />
-        <Route path="/Panier" element={<Panier />} />
-        <Route path="/Recherche" element={<Recherche />} />
+        <Route path="/Panier" element={<Panier />} />       
         <Route path="/GestionCommandes" element={<GestionCommandes />} />
         <Route path="/GestionPaiement" element={<GestionPaiement />} />
         <Route path="/GestionUtilisateur" element={<GestionUtilisateur />} />
