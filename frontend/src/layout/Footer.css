@@ -1,0 +1,114 @@
+/* Footer.css */
+.footer {
+    background-color: #ffffff; /* Fond blanc */
+    color: #000000; /* Texte en noir */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    position: relative; /* Pour positionner le footer en bas de la page */
+    bottom: 0;
+    width: 100%;
+    margin-top: 200px;
+  }
+  
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  /* Hover complet pour la deuxième ligne */
+  .footer-row.hover-row:hover {
+    background-color: #c7c5c5; /* Fond gris au survol */
+    cursor: pointer; /* Curseur en forme de main */
+  }
+  
+  .footer-item {
+    flex: 1;
+    text-align: left;
+    padding: 0 10px;
+   
+  }
+  
+  /* Conteneur pour les images des titres */
+  .icon-title-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Espacement entre l'image et le titre */
+  }
+  
+  .footer-item h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #000000; /* Titres en noir */
+    font-weight: bold; /* Texte en gras */
+    text-align: left; /* Centrer le texte */
+  }
+  
+  .footer-item p {
+    margin: 0;
+    color: #080808; /* Texte en noir */
+    font-weight: bold; /* Texte en gras */
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 20px;
+  }
+  
+  .footer-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-item ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-item ul li a {
+    color: #000000; /* Liens en noir */
+    text-decoration: none; /* Pas de soulignement */
+    font-weight: bold; /* Texte en gras */
+    transition: background-color 0.3s ease; /* Transition pour le survol */
+    padding: 5px 10px; /* Espacement pour le survol */
+    border-radius: 4px; /* Arrondi des coins */
+    text-align: left;
+  }
+  
+  .footer-item ul li a:hover {
+    background-color: #c7c5c5; /* Fond gris au survol */
+  }
+  
+  /* Style pour les images des titres */
+  .icon-title {
+    width: 90px; /* Largeur des images */
+    height: 90px; /* Hauteur des images */
+  }
+  
+  /* Style pour les images de contact */
+  .icon-contact {
+    width: 30px; /* Largeur des images */
+    height: 30px; /* Hauteur des images */
+    margin-right: 10px; /* Espacement entre l'image et le texte */
+    justify-content:left;
+    
+  }
+  
+  /* Style pour les icônes des réseaux sociaux */
+  .social-icons {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+  }
+  
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+   
+    transition: filter 0.3s ease;
+  }
+  
+  .social-icons img:hover {
+    filter: brightness(0) invert(0.8); /* Icônes en gris au survol */
+  }

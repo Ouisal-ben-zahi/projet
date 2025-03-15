@@ -16,6 +16,9 @@ import TableauBord from './Admin/TableauBord';
 import Connecter from './Connecter';
 import Inscrire from './Inscrire';
 
+import Footer from './layout/Footer';
+
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -35,7 +38,14 @@ const App = () => (
         <Route path="/TableauBord" element={<TableauBord />} />
         <Route path="/Connecter" element={<Connecter />} />
         <Route path="/Inscrire" element={<Inscrire />} />
+
+ 
+
       </Routes>
+
+      {/* Ajout du Footer */}
+
+      <Footer />
     </BrowserRouter>
   </Provider>
 );
