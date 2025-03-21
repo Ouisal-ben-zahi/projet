@@ -13,6 +13,11 @@ class Paiement extends Model
         'id_commande',
         'montant',
         'status',
+<<<<<<< HEAD
+=======
+        'date',
+        'methode'
+>>>>>>> dev
     ];
 
     // Relation avec la commande

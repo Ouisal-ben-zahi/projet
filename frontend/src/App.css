@@ -109,6 +109,10 @@ nav a {
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 10px;
+<<<<<<< HEAD
+=======
+  color: #333;
+>>>>>>> dev
 }
 
 .aroosage .une-plateforme-en,
@@ -116,6 +120,10 @@ nav a {
 .rnovation-d-usine .une-plateforme-en {
   font-size: 14px;
   line-height: 1.5;
+<<<<<<< HEAD
+=======
+  color: #666;
+>>>>>>> dev
 }
 
 .coordonnes-wrapper {
@@ -240,6 +248,7 @@ nav a {
 }
 
 .categories {
+<<<<<<< HEAD
   position: relative;
   font-family: "Roboto-Bold", Helvetica;
   font-weight: 700;
@@ -262,6 +271,44 @@ nav a {
 .categories ul {
   list-style-type: none; 
 }
+=======
+  padding: 20px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-button {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 4px 0;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.category-button:hover {
+  color: #46A358;
+  background-color: #e8f5e9;
+  border-radius: 4px;
+}
+
+.title-categories {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+>>>>>>> dev
 .signup-container {
   display: flex;
   justify-content: center;

@@ -8,6 +8,11 @@ class produite extends Model
 {
     use HasFactory;
 
+<<<<<<< HEAD
+=======
+    protected $table = 'produites';
+
+>>>>>>> dev
     protected $fillable = [
         'nom',
         'image',
@@ -18,6 +23,15 @@ class produite extends Model
         'id_categorie',
     ];
 
+<<<<<<< HEAD
+=======
+    protected $casts = [
+        'prix' => 'float',
+        'quantité' => 'integer',
+        'date' => 'date'
+    ];
+
+>>>>>>> dev
     // Relation avec la catégorie
     public function categorie()
     {

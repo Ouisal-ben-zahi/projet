@@ -33,6 +33,15 @@ const Slider = () => {
         return () => clearTimeout(timer);
     }, [slide]);
 
+<<<<<<< HEAD
+=======
+    useEffect(() => {
+        if (slide >= slides.length) {
+            setSlide(0);
+        }
+    }, [slide, slides.length]);
+
+>>>>>>> dev
     return (
         <>
             <div className="container d-flex justify-content-between align-items-center slider" style={{  padding: '40px 20px' }}>

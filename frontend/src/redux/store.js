@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createStore, combineReducers, applyMiddleware  } from 'redux';
 import {thunk} from "redux-thunk";
 import produitsReducer from './reducers/produitsReducer';
@@ -20,4 +21,19 @@ const rootReducer = combineReducers({
 // Création du store Redux
 const store = createStore(rootReducer,applyMiddleware(thunk));
 
+=======
+import { configureStore } from '@reduxjs/toolkit';
+import categoriesReducer from './reducers/categoriesReducer';
+import { thunk } from 'redux-thunk';
+
+// Remove the old createStore setup and just use configureStore
+const store = configureStore({
+  reducer: {
+    categories: categoriesReducer
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(thunk)
+});
+
+>>>>>>> dev
 export default store;

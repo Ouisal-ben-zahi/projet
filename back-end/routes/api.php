@@ -10,6 +10,10 @@ use App\Http\Controllers\Api\PaiementController;
 use App\Http\Controllers\Api\LigneAchatController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\API\AuthController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\Api\ImageController;
+>>>>>>> dev
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +37,11 @@ Route::apiResource('produites', ProduitController::class);
 
 Route::apiResource('ligne-commandes', LigneCommandeController::class);
 
+<<<<<<< HEAD
 Route::get('/images/{filename}', [ ProduitController::class,'getProductImage']);
+=======
+Route::get('/images/{filename}', [ImageController::class, 'show']);
+>>>>>>> dev
 
 Route::apiResource('commandes', CommandeController::class);
 
@@ -49,4 +57,14 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user', [AuthController::class, 'user']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
+<<<<<<< HEAD
 });
+=======
+});
+
+Route::get('/categories', [CategorieController::class, 'index']);
+
+Route::get('/produites', [ProduitController::class, 'index']);
+
+Route::get('/check-email', [AuthController::class, 'checkEmail']);
+>>>>>>> dev

@@ -35,9 +35,17 @@ class AuthController extends Controller
         $user = User::create([
             'nom' => $request->nom,
             'prenom' => $request->prenom,
+<<<<<<< HEAD
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'telephone' => $request->telephone,
+=======
+            'adress' => $request->adress,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'telephone' => $request->telephone,
+            'role' => 'client',
+>>>>>>> dev
         ]);
 
         $token = JWTAuth::fromUser($user);
@@ -68,4 +76,20 @@ class AuthController extends Controller
     {
         // Implémentez la logique pour rafraîchir le token ici
     }
+<<<<<<< HEAD
+=======
+
+    public function checkEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $exists = User::where('email', $request->email)->exists();
+
+        return response()->json([
+            'exists' => $exists
+        ]);
+    }
+>>>>>>> dev
 }
