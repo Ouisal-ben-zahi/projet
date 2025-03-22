@@ -14,20 +14,13 @@ return new class extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_utilisateur')->constrained('users')->onDelete('cascade')->onupdate('cascade');
-<<<<<<< HEAD
             $table->foreignId('id_ligneCommande')->constrained('ligne_commandes')->onDelete('cascade')->onupdate('cascade');
-=======
->>>>>>> dev
             $table->float('total');
             $table->enum('status', ['en_attend', 'en_cours','livré'])->default('en_attend');
             $table->date('date_commande')->default(\DB::raw('CURRENT_DATE'));
             $table->date('date_livraison')->nullable();
             $table->timestamps();   
-<<<<<<< HEAD
              });
-=======
-        });
->>>>>>> dev
     }
 
     /**

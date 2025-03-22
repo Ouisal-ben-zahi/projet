@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\CategorieController;
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProduitController;
 use App\Http\Controllers\Api\LigneCommandeController;
 use App\Http\Controllers\Api\CommandeController;
@@ -10,10 +10,10 @@ use App\Http\Controllers\Api\PaiementController;
 use App\Http\Controllers\Api\LigneAchatController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\API\AuthController;
-<<<<<<< HEAD
-=======
-use App\Http\Controllers\Api\ImageController;
->>>>>>> dev
+use Illuminate\Auth\Events\Verified;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,22 +26,14 @@ use App\Http\Controllers\Api\ImageController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 
-Route::apiResource('categories', CategorieController::class);
+
+Route::apiResource('categories', CategoryController::class);
 
 Route::apiResource('produites', ProduitController::class);
 
 Route::apiResource('ligne-commandes', LigneCommandeController::class);
-
-<<<<<<< HEAD
-Route::get('/images/{filename}', [ ProduitController::class,'getProductImage']);
-=======
-Route::get('/images/{filename}', [ImageController::class, 'show']);
->>>>>>> dev
 
 Route::apiResource('commandes', CommandeController::class);
 
@@ -51,20 +43,44 @@ Route::apiResource('ligne-achats', LigneAchatController::class);
 
 Route::apiResource('users', UserController::class);
 
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+
+Route::post('/forgot-password', [AuthController::class, 'ForgetPassword']);
+Route::post('/reset-password', [AuthController::class, 'ResetPassword'])->name('password.reset');
 Route::middleware('auth:api')->group(function () {
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/user', [AuthController::class, 'user']);
-    Route::post('/refresh', [AuthController::class, 'refresh']);
-<<<<<<< HEAD
+  Route::get('/user', function (Request $request) {
+    return $request->user();
+  });
+  Route::get('/admin/dashboard', [userController::class, 'index'])->name('admin.dashboard');
+
+  Route::post('/logout', [AuthController::class, 'logout']);
+
+  Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return response()->json([
+      'message' => 'Please check your email for the verification link.',
+    ]);
+  })->middleware('throttle:6,1')->name('verification.send');
+
+  Route::get('/email/verify/{id}/{hash}', function (Request $request, $id, $hash) {
+    if (!hash_equals((string) $id, (string) $request->user()->getKey())) {
+      return response()->json(['message' => 'Invalid user ID'], 400);
+    }
+
+    if (!hash_equals((string) $hash, sha1($request->user()->getEmailForVerification()))) {
+      return response()->json(['message' => 'Invalid hash'], 400);
+    }
+
+    if ($request->user()->hasVerifiedEmail()) {
+      return response()->json(['message' => 'Email already verified.']);
+    }
+
+    if ($request->user()->markEmailAsVerified()) {
+      event(new Verified($request->user()));
+    }
+
+    return response()->json(['message' => 'Email verified successfully!']);
+  })->name('verification.verify');
 });
-=======
-});
-
-Route::get('/categories', [CategorieController::class, 'index']);
-
-Route::get('/produites', [ProduitController::class, 'index']);
-
-Route::get('/check-email', [AuthController::class, 'checkEmail']);
->>>>>>> dev

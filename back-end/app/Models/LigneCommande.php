@@ -12,11 +12,6 @@ class LigneCommande extends Model
     protected $fillable = [
         'quantité',
         'id_produite',
-<<<<<<< HEAD
-=======
-        'id_commande',
-        'id_utilisateur',
->>>>>>> dev
     ];
 
     // Relation avec le produit

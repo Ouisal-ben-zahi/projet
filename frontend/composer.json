@@ -1,0 +1,8 @@
+{
+    "require": {
+        "php": "^8.2",
+        "fruitcake/laravel-cors": "^2.1",
+        "laravel/passport": "^11.8",
+        "laravel/framework": "^11.44"
+    }
+}
